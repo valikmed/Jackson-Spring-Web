@@ -34,8 +34,8 @@ public class JacksonTests {
                 .author("Aria Montgomery")
                 .yearPublished("2005")
                 .build();
-
-        String json = "{\"isbn\":\"978-0-13-478627-5\",\"title\":\"The Enigma of Eternity\",\"author\":\"Aria Montgomery\",\"yearPublished\":\"2005\"}";
+// For ignoring properties that not registered I use JsonPropertyIgnoring and set value true in main class that then ignoring foo and value bar
+        String json = "{\"foo\":\"bar\",\"isbn\":\"978-0-13-478627-5\",\"title\":\"The Enigma of Eternity\",\"author\":\"Aria Montgomery\",\"yearPublished\":\"2005\"}";
         Book result = objectMapper.readValue(json, Book.class);
         assertThat(result).isEqualTo(book);
     }
